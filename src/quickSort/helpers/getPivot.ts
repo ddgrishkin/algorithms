@@ -1,4 +1,4 @@
-import {CompareHandler} from '../types';
+import {CompareHandler, CompareResult} from '../types';
 
 export function getPivot<T = unknown>(source: T[], compare: CompareHandler<T>): T {
   if (source.length < 2) {
@@ -16,7 +16,7 @@ export function getPivot<T = unknown>(source: T[], compare: CompareHandler<T>): 
 
   // Find min and max value
   // between two border values in array
-  if (compare(left, right)) {
+  if (compare(left, right) === CompareResult.GREATER) {
     max = left;
     min = right;
   }
@@ -24,12 +24,12 @@ export function getPivot<T = unknown>(source: T[], compare: CompareHandler<T>): 
   // If min value greater than middle value
   // that means middle value less than max
   // at this case min - is the average
-  if (compare(min, middle)) {
+  if (compare(min, middle) === CompareResult.GREATER) {
     return min;
   }
 
   // If min less, than middle - need to compare
   // max and midlle to detect greater value
   // and return average in result
-  return compare(max, middle) ? middle : max;
+  return compare(max, middle) === CompareResult.GREATER ? middle : max;
 }

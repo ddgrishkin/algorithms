@@ -1,4 +1,4 @@
-export type CompareHandler<T> = (a: T, b: T) => number;
+export type CompareHandler<T> = (a: T, b: T) => CompareResult;
 
 export enum CompareResult {
   EQUAL = 0,
