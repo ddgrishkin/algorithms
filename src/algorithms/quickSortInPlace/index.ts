@@ -1,5 +1,5 @@
 import {swap} from 'helpers/swap';
-import {getPivot} from 'helpers/getPivot';
+import {getRandomElement} from 'helpers/getRandomElement';
 import {CompareResult} from 'types';
 
 export type CompareHandler<T> = (a: T, b: T) => CompareResult;
@@ -12,7 +12,7 @@ export function quickSortInPlace<T = unknown>(source: T[], compare: CompareHandl
 
     let left: number = from;
     let right: number = from;
-    let pivot: T = getPivot<T>(source, from, to);
+    let pivot: T = getRandomElement<T>(source, from, to);
 
     for (let i = from; i <= to; i++) {
       const compareResult = compare(source[i], pivot);

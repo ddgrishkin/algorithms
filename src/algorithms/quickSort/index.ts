@@ -1,4 +1,4 @@
-import {getPivot} from 'helpers/getPivot';
+import {getRandomElement} from 'helpers/getRandomElement';
 import {CompareResult} from 'types';
 
 export type CompareHandler<T> = (a: T, b: T) => CompareResult;
@@ -11,7 +11,7 @@ export function quickSort<T>(source: T[], compare: CompareHandler<T>): T[] {
   const left = [];
   const right = [];
   const middle = [];
-  const pivot = getPivot(source, 0, source.length - 1);
+  const pivot = getRandomElement(source, 0, source.length - 1);
 
   source.forEach((item) => {
     switch(compare(item, pivot)) {

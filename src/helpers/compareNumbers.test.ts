@@ -1,7 +1,7 @@
 import {CompareResult} from 'types';
-import {compare} from './compare';
+import {compareNumbers} from './compareNumbers';
 
-describe('compare', () => {
+describe('compareNumbers', () => {
   const cases = [
     {
       a: 1,
@@ -25,7 +25,7 @@ describe('compare', () => {
 
   cases.forEach((item) => {
     it(item.description, () => {
-      expect(compare(item.a, item.b)).toBe(item.result);
+      expect(compareNumbers(item.a, item.b)).toBe(item.result);
     });
   });
 });
