@@ -1,5 +1,7 @@
-import {getPivot} from './helpers/getPivot';
-import {CompareHandler, CompareResult} from './types';
+import {getPivot} from 'helpers/getPivot';
+import {CompareResult} from 'types';
+
+export type CompareHandler<T> = (a: T, b: T) => CompareResult;
 
 export function quickSort<T>(source: T[], compare: CompareHandler<T>): T[] {
   if (source.length < 2) {
@@ -9,7 +11,7 @@ export function quickSort<T>(source: T[], compare: CompareHandler<T>): T[] {
   const left = [];
   const right = [];
   const middle = [];
-  const pivot = getPivot(source, compare);
+  const pivot = getPivot(source, 0, source.length - 1);
 
   source.forEach((item) => {
     switch(compare(item, pivot)) {

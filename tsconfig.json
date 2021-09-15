@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
-    "module": "commonjs"
+    "baseUrl": ".",
+    "module": "commonjs",
+    "paths": {
+      "helpers/*": ["src/helpers/*"],
+      "types": ["src/types.ts"],
+    }
   },
   "exclude": [
     "node_modules"

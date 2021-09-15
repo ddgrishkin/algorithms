@@ -1,5 +1,5 @@
-import {quickSort} from './index';
-import {compare} from './helpers/compare';
+import {quickSortInPlace} from './index';
+import {compare} from 'helpers/compare';
 
 describe('quickSort', () => {
   const cases = [
@@ -52,7 +52,7 @@ describe('quickSort', () => {
 
   cases.forEach((caseItem) => {
     it(caseItem.description, () => {
-      expect(quickSort(caseItem.input, compare)).toEqual(caseItem.output);
+      expect(quickSortInPlace(caseItem.input, compare)).toEqual(caseItem.output);
     });
   });
 });

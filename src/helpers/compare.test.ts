@@ -1,5 +1,5 @@
+import {CompareResult} from 'types';
 import {compare} from './compare';
-import {CompareResult} from '../types';
 
 describe('compare', () => {
   const cases = [
